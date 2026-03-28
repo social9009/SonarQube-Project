@@ -9,7 +9,7 @@ pipeline {
 
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
-        DOCKERHUB_USERNAME = 'kastrov'  // Set this directly to your Docker Hub username
+        DOCKERHUB_USERNAME = 'hitfast'  // Set this directly to your Docker Hub username
         DOCKER_IMAGE = "${DOCKERHUB_USERNAME}/spotify-app:latest"
     }
 
@@ -58,7 +58,7 @@ pipeline {
         stage('Docker Push to DockerHub') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                    withCredentials([usernamePassword(credentialsId: 'docker-creds', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
                         echo "Docker Hub Username: ${DOCKERHUB_USERNAME}"  // Check the username
                         echo "Docker Image: ${DOCKER_IMAGE}"  // Check the image
                         sh "docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
