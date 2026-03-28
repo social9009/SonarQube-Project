@@ -1,6 +1,5 @@
 											SonarQube - Code Quality Analysis
-														by
-													Kastro Kiran V
+													
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Step 1: Launch Ubuntu VM with instance type as t2.large, AMI: 24.04, Storage: 25 GB, No. of instances: 1
 
